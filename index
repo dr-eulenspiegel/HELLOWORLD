@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statystyki z Wykresami i Matematyką</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/7.0.0/math.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.2.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.2.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.2.0/dist/theme/black.css">
+    <style>
+        /* Dodatkowy styl dla prezentacji */
+        #charts-container, .chart-container {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Statystyki z Wykresami i Matematyką</h1>
+            </section>
+
+            <!-- Wykresy -->
+            <section>
+                <h2>Wykresy</h2>
+                <div id="charts-container">
+                    <!-- Wykres kołowy -->
+                    <div class="chart-container">
+                        <canvas id="pie-chart"></canvas>
+                    </div>
+
+                    <!-- Wykres słupkowy -->
+                    <div class="chart-container">
+                        <canvas id="bar-chart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Matematyka -->
+            <section>
+                <h2>Matematyka</h2>
+                <p>Przykład obliczeń matematycznych przy użyciu Math.js:</p>
+                <pre>
+                    <code>
+                        const expression = '2 + 3 * 4';
+                        const result = math.evaluate(expression);
+                        console.log(result); // Wynik: 14
+                    </code>
+                </pre>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.2.0/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize();
+        
+        // Dane dla wykresów
+        var pieChartData = {
+            labels: ['Red', 'Blue', 'Yellow'],
+            datasets: [{
+                data: [10, 20, 30],
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+            }]
+        };
+
+        var barChartData = {
+            labels: ['January', 'February', 'March', 'April', 'May'],
+            datasets: [{
+                label: 'Monthly Sales',
+                data: [50, 75, 120, 90, 60],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Utwórz wykresy
+        var pieChart = new Chart(document.getElementById('pie-chart'), {
+            type: 'pie',
+            data: pieChartData
+        });
+
+        var barChart = new Chart(document.getElementById('bar-chart'), {
+            type: 'bar',
+            data: barChartData
+        });
+    </script>
+</body>
+</html>
